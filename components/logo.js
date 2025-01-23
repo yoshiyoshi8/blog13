@@ -1,7 +1,13 @@
-const { default: Link } = require('next/link');
+import Link from 'next/link';
 
-const logo = () => {
-  return <Link href="/">CUBE</Link>;
+import styles from 'styles/logo.module.css';
+
+const logo = ({ boxOn = false }) => {
+  return (
+    <Link href="/" className={boxOn ? styles.box : styles.basic}>
+      CUBE
+    </Link>
+  );
 };
 
 export default logo;
