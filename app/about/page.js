@@ -5,11 +5,21 @@ import Container from '@/components/container';
 import PostBody from '@/components/post-body';
 import Contact from '@/components/contact';
 import { TowColumn, TowColumnMain, TowColumnSidebar } from '@/components/tow-column';
+import eyecatch from 'images/about.jpg';
 
 export default function About() {
   return (
     <Container>
       <Hero title="About" subtitle="About development activities" />
+      <figure>
+        <Image
+          src={eyecatch}
+          alt=""
+          layout="responsive"
+          sizes="(min-width: 1152px) 1152px, 100vw"
+          priority
+        />
+      </figure>
       <TowColumn>
         <TowColumnMain>
           <PostBody>
