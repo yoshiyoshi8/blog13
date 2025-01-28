@@ -46,3 +46,11 @@ export default function About() {
     </Container>
   );
 }
+
+export const metadata = {
+  title: 'About',
+  description: 'About development activities',
+  openGraph: {
+    description: 'About development activities',
+  },
+};

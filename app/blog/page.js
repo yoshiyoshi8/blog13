@@ -10,3 +10,11 @@ export default function Blog() {
     </Container>
   );
 }
+
+export const metadata = {
+  title: 'ブログ',
+  description: 'ブログ記事一覧',
+  openGraph: {
+    description: 'ブログ記事一覧',
+  },
+};
