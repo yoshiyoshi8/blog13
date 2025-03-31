@@ -2,7 +2,6 @@ import parse from 'html-react-parser';
 import Image from 'next/image';
 
 export default function ConvertBody({ contentHTML }) {
-  console.log(contentHTML);
   const contentReact = parse(contentHTML, {
     replace: (node) => {
       if (node.name === 'img') {
