@@ -27,7 +27,7 @@ export default async function Category({ params }) {
 
   return (
     <Container>
-      <PostHeader title={cat.name} subtitle="カテゴリー一覧" />
+      <PostHeader title={cat.name} subtitle="カテゴリー一覧a" />
     </Container>
   );
 }
