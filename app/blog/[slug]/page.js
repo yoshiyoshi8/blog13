@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import parse from 'html-react-parser';
 import { getPostBySlug, getAllSlugs } from '@/lib/api';
 import Container from '@/components/container';
 import PostHeader from '@/components/post-header';
