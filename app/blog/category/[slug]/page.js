@@ -1,7 +1,9 @@
 import React from 'react';
-import { getAllCategories } from '@/lib/api';
+import { getAllCategories, getAllPostsByCategory } from '@/lib/api';
 import Container from '@/components/container';
 import PostHeader from '@/components/post-header';
+import Posts from '@/components/posts';
+import { eyecatchLocal } from '@/lib/constants';
 
 export const dynamicParams = false;
 
@@ -11,10 +13,21 @@ export async function generateStaticParams() {
 }
 
 export default async function Category({ params }) {
-  const { slug: catSlug } = params; // 🔥 params から `slug` を取得
+  const resolvedParams = await params; // ✅ await で params を解決
+  const { slug: catSlug } = resolvedParams; // 🔥 params から `slug` を取得
 
   const allCats = await getAllCategories();
   const cat = allCats.find(({ slug }) => slug === catSlug);
+
+  console.log('catId', cat.id);
+  const posts = await getAllPostsByCategory(cat.id);
+  console.log('posts', posts);
+
+  for (const post of posts) {
+    if (!post.hasOwnProperty('eyecatch')) {
+      post.eyecatch = eyecatchLocal;
+    }
+  }
 
   // 該当カテゴリーが見つからない場合の処理
   if (!cat) {
@@ -27,7 +40,8 @@ export default async function Category({ params }) {
 
   return (
     <Container>
-      <PostHeader title={cat.name} subtitle="カテゴリー一覧a" />
+      <PostHeader title={cat.name} subtitle="カテゴリー一覧" />
+      <Posts posts={posts} />
     </Container>
   );
 }
