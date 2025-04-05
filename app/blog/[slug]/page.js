@@ -10,6 +10,7 @@ import PostCategories from '@/components/post-categories';
 import PostBukken from '@/components/post-bukken';
 import prevNextPost from '@/lib/prev-next-post';
 import Pagination from '@/components/pagination';
+import { eyecatchLocal } from '@/lib/constants';
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
